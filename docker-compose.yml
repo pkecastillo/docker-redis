@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  redis-master:
+    image: 'bitnami/redis:latest'
+    # ports:
+    #   - '6379'
+    network_mode: host
+    environment:
+      - REDIS_REPLICATION_MODE=master
+      - REDIS_PASSWORD=REDis20
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_PORT_NUMBER=6379
+      # - REDIS_TLS_ENABLED=yes
+      # - REDIS_TLS_CERT_FILE=/opt/bitnami/redis/certs/redis.crt
+      # - REDIS_TLS_KEY_FILE=/opt/bitnami/redis/certs/redis.key
+      # - REDIS_TLS_CA_FILE=/opt/bitnami/redis/certs/redisCA.crt
+    volumes:
+      - './data/certs:/opt/bitnami/redis/certs'
+      - './data/redis-persistence:/bitnami'
+      # - './data/your_redis.conf:/opt/bitnami/redis/mounted-etc/redis.conf'
