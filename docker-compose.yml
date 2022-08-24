@@ -5,6 +5,7 @@ services:
     image: 'bitnami/redis:latest'
     # ports:
     #   - '6379'
+    container_name: redisServer
     network_mode: host
     environment:
       - REDIS_REPLICATION_MODE=master
